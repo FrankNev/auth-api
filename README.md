@@ -4,6 +4,7 @@
 
 API REST de autenticación desarrollada con JavaScript (Node.js), Express y MongoDB (Local o Nube).
 
+<br>
   
 ## Descripción
 
@@ -15,36 +16,22 @@ API REST de autenticación desarrollada con JavaScript (Node.js), Express y Mong
 
 ## Tecnologías y dependencias
 
-  
-
 | Paquete | Versión | Propósito en este proyecto |
-<br>
-
+| :--- | :--- | :--- |
 | `express` | ^5.2.1 | Framework principal del servidor |
-
 | `mongoose` | ^9.3.0 | ODM para MongoDB |
-
 | `jsonwebtoken` | ^9.0.3 | Generación y verificación de tokens JWT |
-
 | `bcryptjs` | ^3.0.3 | Hash seguro de contraseñas |
-
 | `passport` | ^0.7.0 | Middleware de autenticación |
-
 | `passport-google-oauth20` | ^2.0.0 | Autenticación OAuth 2.0 con Google |
-
 | `express-session` | ^1.19.0 | Manejo de sesiones |
-
 | `express-validator` | ^7.3.1 | Validación y sanitización de datos |
-
 | `express-rate-limit` | ^8.3.1 | Protección contra abuso de endpoints |
-
 | `cors` | ^2.8.6 | Configuración de Cross-Origin Resource Sharing |
-
 | `dotenv` | ^17.3.1 | Gestión de variables de entorno |
-
 | `swagger-jsdoc` | ^6.2.8 | Generación de documentación OpenAPI |
-
 | `swagger-ui-express` | ^5.0.1 | Interfaz visual de la documentación |
+
 
   
 <br>
@@ -55,15 +42,14 @@ API REST de autenticación desarrollada con JavaScript (Node.js), Express y Mong
 
 ```
 auth-api/
- |
+|
 ├── src/ # Lógica principal de la aplicación
- |
+|
 ├── server.js # Punto de entrada del servidor
- |
+|
 ├── package.json # Dependencias y scripts
- |
+|
 └── .gitignore
-
 ```
 
   
@@ -129,7 +115,7 @@ PORT=3000
 # MongoDB
 MONGODB_URI=mongodb://localhost:27017/auth-api
 
-O para conectarse a MongoDB Atlas:
+# O para conectarse a MongoDB Atlas:
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-url>/<default-database>
 
 
@@ -181,46 +167,31 @@ npm  run  dev
 
 ### Autenticación local
 
-
-
 | Método | Ruta | Descripción |
-
-|--------|------|-------------|
-
+| :--- | :--- | :--- |
 | `POST` | `/auth/register` | Registro de nuevo usuario |
-
 | `POST` | `/auth/login` | Inicio de sesión, retorna JWT |
-
 | `POST` | `/auth/logout` | Cierre de sesión |
+
 
 <br>
 
 ### Autenticación con Google
 
-
-
 | Método | Ruta | Descripción |
-
-|--------|------|-------------|
-
+| :--- | :--- | :--- |
 | `GET` | `/auth/google` | Inicia el flujo OAuth con Google |
-
 | `GET` | `/auth/google/callback` | Callback de Google tras autenticación |
-
 | `GET` | `/auth/google/failure` | Redirecciona al usuario en caso de error al autenticar |
 
 <br>  
 
 ### Usuario
 
-
-
 | Método | Ruta | Descripción |
-
-|--------|------|-------------|
-
+| :--- | :--- | :--- |
 | `GET` | `/auth/profile` | Datos del usuario autenticado |
-| `GET` | `/auth/admin` | Panel para administrador/es |
+| `GET` | `/auth/admin` | Panel para administrador |
   
 <br>
 

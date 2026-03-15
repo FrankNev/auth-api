@@ -5,15 +5,14 @@
 API REST de autenticación desarrollada con JavaScript (Node.js), Express y MongoDB (Local o Nube).
 
   
-<br>
 ## Descripción
 
   
 
 `auth-api` es un servidor backend que gestiona la autenticación y autorización de usuarios. Soporta autenticación tradicional mediante JWT y autenticación OAuth 2.0 con Google, manejo de sesiones, validación de datos, rate limiting y documentación interactiva con Swagger.
 
-  
 <br>
+
 ## Tecnologías y dependencias
 
   
@@ -49,6 +48,7 @@ API REST de autenticación desarrollada con JavaScript (Node.js), Express y Mong
 
   
 <br>
+
 ## Estructura del proyecto
 
   
@@ -68,6 +68,7 @@ auth-api/
 
   
 <br>
+
 ## Requisitos previos
 
   
@@ -78,6 +79,7 @@ auth-api/
 
   
 <br>
+
 ## Instalación
 
   
@@ -111,6 +113,7 @@ cp .env.example .env
 
   
 <br>
+
 ## Variables de entorno
 
   
@@ -144,6 +147,7 @@ GOOGLE_CALLBACK_URL=http://localhost:3000/auth/google/callback
 
   
 <br>
+
 ## Uso
 
   
@@ -170,6 +174,7 @@ npm  run  dev
 
   
 <br>
+
 ## Endpoints
 
 
@@ -188,7 +193,7 @@ npm  run  dev
 
 | `POST` | `/auth/logout` | Cierre de sesión |
 
-
+<br>
 
 ### Autenticación con Google
 
@@ -204,7 +209,7 @@ npm  run  dev
 
 | `GET` | `/auth/google/failure` | Redirecciona al usuario en caso de error al autenticar |
 
-  
+<br>  
 
 ### Usuario
 
@@ -218,6 +223,7 @@ npm  run  dev
 | `GET` | `/auth/admin` | Panel para administrador/es |
   
 <br>
+
 ## Documentación
 
   
@@ -233,6 +239,7 @@ http://localhost:3000/api-docs
 
   
 <br>
+
 ## Seguridad
 
   
@@ -247,6 +254,7 @@ http://localhost:3000/api-docs
 
   
 <br>
+
 ## Autor
 
   

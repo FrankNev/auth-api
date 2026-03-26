@@ -1,8 +1,8 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-const generateToken = (id, role) => {
-  return jwt.sign({ id, role }, process.env.JWT_SECRET, {
+const generateToken = (id, role, email) => {
+  return jwt.sign({ id, role, email }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 };
@@ -21,7 +21,7 @@ const register = async (req, res) => {
 
     res.status(201).json({
       message: 'Usuario creado correctamente',
-      token: generateToken(user._id, user.role),
+      token: generateToken(user._id, user.role, user.email),
       user: {
         id: user._id,
         name: user.name,
@@ -46,7 +46,7 @@ const login = async (req, res) => {
 
     res.json({
       message: 'Login exitoso',
-      token: generateToken(user._id, user.role),
+      token: generateToken(user._id, user.role, user.email),
       user: {
         id: user._id,
         name: user.name,

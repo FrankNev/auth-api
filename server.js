@@ -12,10 +12,18 @@ const { errorHandler, notFound } = require('./src/middlewares/errorMiddleware');
 const { globalLimiter } = require('./src/middlewares/rateLimitMiddleware');
 const swaggerSpec = require('./src/config/swagger');
 
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production'
+    ? process.env.FRONTEND_URL
+    : 'http://localhost:3001',
+  credentials: true,
+};
+
 const app = express();
 
 // Middlewares globales
 app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(globalLimiter);
 

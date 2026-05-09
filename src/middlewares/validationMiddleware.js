@@ -1,7 +1,7 @@
 const { body, validationResult } = require('express-validator');
 
 const ALLOWED_DOMAINS = new Set([
-  'gmail.com', 'googlemail.com',
+  'gmail.com',
   'yahoo.com', 'yahoo.com.ar', 'yahoo.com.br', 'yahoo.es',
   'outlook.com', 'outlook.com.ar', 'outlook.es',
   'hotmail.com', 'hotmail.com.ar', 'hotmail.es',
@@ -12,7 +12,6 @@ const ALLOWED_DOMAINS = new Set([
   'zoho.com',
   'aol.com',
   'msn.com',
-  'mail.com',
 ]);
 
 const isAllowedEmailDomain = (email) => {
@@ -40,8 +39,8 @@ const validateRegister = [
     .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/).withMessage('El nombre solo puede contener letras y espacios'),
 
   body('email')
+    .trim().toLowerCase()
     .isEmail().withMessage('Email inválido')
-    .normalizeEmail()
     .custom((value) => {
       if (!isAllowedEmailDomain(value)) {
         throw new Error('Solo se aceptan emails de proveedores conocidos (Gmail, Outlook, Yahoo, etc.)');

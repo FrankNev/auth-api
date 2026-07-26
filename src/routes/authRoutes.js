@@ -100,23 +100,20 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
  *         description: Error al autenticar con Google
  */
 router.get('/google/callback',
-  passport.authenticate('google', { failureRedirect: '/api/auth/google/failure' }),
+  passport.authenticate('google', { session: false, failureRedirect: '/api/auth/google/failure' }),
   (req, res) => {
     const token = jwt.sign(
-      { id: req.user._id, role: req.user.role },
+      { 
+        id: req.user._id, 
+        role: req.user.role, 
+        name: req.user.name, 
+        email: req.user.email 
+      },
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES_IN }
     );
-    res.json({
-      message: 'Login con Google exitoso',
-      token,
-      user: {
-        id: req.user._id,
-        name: req.user.name,
-        email: req.user.email,
-        role: req.user.role,
-      },
-    });
+
+    res.redirect(`${process.env.FRONTEND_URL}/login/oauth#token=${token}`);
   }
 );
 
